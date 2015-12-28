@@ -83,7 +83,7 @@ public class Interfaz extends javax.swing.JFrame {
                         .addContainerGap(97, Short.MAX_VALUE)
                         .addComponent(abrir)
                         .addGap(97, 97, 97))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
@@ -105,10 +105,11 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(160, 160, 160)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -135,7 +136,7 @@ public class Interfaz extends javax.swing.JFrame {
 				if (mat.matches()==true)
 				{
                                     this.Csalida.append("Caracter especial : "+this.vector[i]+" ");
-                                    
+                                  //   this.aux1.append("Caracter especial ");
                                     this.Csalida.append("\n");
                                     
 				} 
@@ -179,7 +180,7 @@ public class Interfaz extends javax.swing.JFrame {
 				if (mat.matches()==true&&mat1.matches()==false)
 				{
                                     this.Csalida.append("identificador : "+this.vector[i]+" ");
-                                    
+                                  //  this.aux1.append("identificador  ");
                                     this.Csalida.append("\n");
                                  
 				} 
@@ -201,7 +202,7 @@ public class Interfaz extends javax.swing.JFrame {
 				if (mat.matches()==true)
 				{
                                     this.Csalida.append("Operador compuesto : "+this.vector[i]+" ");
-                                  
+                                 //  this.aux1.append("Operador compuesto ");
                                     this.Csalida.append("\n");
                                     
 				} 
@@ -222,7 +223,7 @@ public class Interfaz extends javax.swing.JFrame {
 				if (mat.matches()==true)
 				{
                                     this.Csalida.append("palabra reservada : "+this.vector[i]+" "); 
-                                   
+                                 //  this.aux1.append("palabra reservada ");
                                     this.Csalida.append("\n");
                                     
 				} 
@@ -243,7 +244,7 @@ public class Interfaz extends javax.swing.JFrame {
 				if (mat.matches()==true)
 				{
                                     this.Csalida.append("int : "+this.vector[i]+" "); 
-                                   
+                                //   this.aux1.append("int ");
                                     this.Csalida.append("\n");
                                     
 				} 
@@ -264,7 +265,7 @@ public class Interfaz extends javax.swing.JFrame {
 				if (mat.matches()==true)
 				{
                                     this.Csalida.append("String : "+this.vector[i]+" "); 
-                                   
+                                //   this.aux1.append("String "); 
                                     this.Csalida.append("\n");
                                     
 				} 
@@ -285,7 +286,7 @@ public class Interfaz extends javax.swing.JFrame {
 				if (mat.matches()==true)
 				{
                                     this.Csalida.append("Char : "+this.vector[i]+" ");
-                                   
+                                 //  this.aux1.append("Char ");
                                     this.Csalida.append("\n");
                                     
 				} 
@@ -308,7 +309,7 @@ public class Interfaz extends javax.swing.JFrame {
 				if (mat.matches()==true)
 				{
                                     this.Csalida.append("Boolean : "+this.vector[i]+" "); 
-                                    
+                                   // this.aux1.append("Boolean ");
                                     this.Csalida.append("\n");
                                     
 				} else{}
@@ -329,7 +330,7 @@ public class Interfaz extends javax.swing.JFrame {
 				if (mat.matches()==true)
 				{
                                     this.Csalida.append("Float :"+this.vector[i]+" "); 
-                                    
+                                  //  this.aux1.append("Float "); 
                                     this.Csalida.append("\n");
                                     
 				} 
@@ -423,7 +424,7 @@ public class Interfaz extends javax.swing.JFrame {
                                 
                                 Matcher mat2 = pat2.matcher(this.vector[2]);
                                  
-                                System.out.println(this.vector[2]);
+                                
 				if (mat.matches()==true&&mat1.matches()==true&&mat2.matches()==true)
 				{
                                     this.error1.setText("Estructura Declaracion"); 
@@ -542,7 +543,7 @@ public class Interfaz extends javax.swing.JFrame {
                                   
                                     
 				} else{
-                               // this.error1.setText("error sintactico");
+                                this.error1.setText("error sintactico");
                                 }
         }	
        
@@ -609,6 +610,7 @@ public class Interfaz extends javax.swing.JFrame {
        
         
         }
+          
           public void EDeclaracionDoWhile()
         {
             String cadena =this.Ingreso.getText();
@@ -625,8 +627,8 @@ public class Interfaz extends javax.swing.JFrame {
                                 Pattern pat3 = Pattern.compile("[=]");
                                 Pattern pat4 = Pattern.compile("-*\\d+");
                                 Pattern pat5 = Pattern.compile("[+|-|*|/|]");
-                              Pattern pat6 = Pattern.compile("-*\\d+");
-                              Pattern pat7 = Pattern.compile("[;]");
+                                Pattern pat6 = Pattern.compile("-*\\d+");
+                                Pattern pat7 = Pattern.compile("[;]");
                                 Pattern pat8 = Pattern.compile("[}]");
                                 Pattern pat9 = Pattern.compile("while");
                                 Pattern pat10 = Pattern.compile("[(]");
@@ -690,8 +692,8 @@ public class Interfaz extends javax.swing.JFrame {
                                 Pattern pat9 = Pattern.compile("[=]");
                                 Pattern pat10 = Pattern.compile("-*\\d+");
                                 Pattern pat11 = Pattern.compile("[+|-|*|/|]");
-                              Pattern pat12 = Pattern.compile("-*\\d+");
-                              Pattern pat13 = Pattern.compile("[;]");
+                                Pattern pat12 = Pattern.compile("-*\\d+");
+                                Pattern pat13 = Pattern.compile("[;]");
                                 Pattern pat14 = Pattern.compile("[}]");
                                 Pattern pat15 = Pattern.compile("else");
                                 Pattern pat16 = Pattern.compile("[{]");
@@ -747,11 +749,44 @@ public class Interfaz extends javax.swing.JFrame {
        
         
         }
-   
+  /*   public void Elogica()
+     {
+         String cadena =this.Ingreso.getText();
+          StringTokenizer st =new StringTokenizer(cadena);
+		
+         for(int i=0;i<vector.length&&st.hasMoreTokens();i++)
+	{                    String s2;
+				s2 = st.nextToken();
+                                 Pattern pat = Pattern.compile("-*\\d+");
+                                 Pattern pat1 = Pattern.compile("[+|-|*|/]");
+                                 Pattern pat2 = Pattern.compile("-*\\d+");
+                                 Pattern pat3 = Pattern.compile("[=]");
+                                 Pattern pat4 = Pattern.compile("-*\\d+");
+                                 Pattern pat5 = Pattern.compile("[;]");
+                                this.vector[i]=s2;
+                                System.out.println(this.vector[i]);
+				Matcher mat = pat.matcher(this.vector[0]);
+                                Matcher mat1 = pat1.matcher(this.vector[1]);
+                                
+                                Matcher mat2 = pat2.matcher(this.vector[2]);
+                                Matcher mat3 = pat3.matcher(this.vector[3]);
+                                Matcher mat4 = pat4.matcher(this.vector[4]);
+                                Matcher mat5 = pat5.matcher(this.vector[5]);
+				if (mat.matches()==true&&mat1.matches()==true&&mat2.matches()==true&&mat3.matches()==true&&mat4.matches()==true&&mat5.matches()==true)
+				{
+                                    this.error1.setText("Estructura Logica"); 
+                                   
+                                    
+				} else{
+                                //this.error1.setText("error sintactico");
+                                }
      
+     }
+     }*/
     private void compilarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compilarActionPerformed
-      this.Csalida.setText("");
+    this.Csalida.setText("");
     this.error1.setText("");
+   // this.aux1.setText("");
     this.VPalabraReservada();
     this.VString();
     this.VBoleano();
@@ -760,12 +795,16 @@ public class Interfaz extends javax.swing.JFrame {
     this.VComentarios();
     this.VDecimal();
     this.VIdentificador();
-     this.VNumeros();
-     this.VOperadorCompuestos();
-     this.VErorr();
-     this.EDeclaracion();   
-     this.EDeclaracionFuncion();
-     this.EDeclaracionIf();
+    this.VNumeros();
+    this.VOperadorCompuestos();
+    this.VErorr();
+    this.EDeclaracion();   
+    this.EDeclaracionFuncion();
+    this.EDeclaracionIf();
+    this.EDeclaracionIfElse();
+    this.EDeclaracionDoWhile();
+    this.EDeclaracionWhile();
+    // this.Elogica();
    //  this.ErrorLinea();     
     }//GEN-LAST:event_compilarActionPerformed
 
@@ -802,7 +841,6 @@ public class Interfaz extends javax.swing.JFrame {
                 String aux=this.Csalida.getText();	
 		wr.write(aux);
                 
-                System.out.println(aux);
             
 		wr.close();
 		bw.close();
