@@ -1,6 +1,7 @@
 
 package compilador1;
 import java.io.BufferedReader;
+import java_cup.runtime.*; 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
