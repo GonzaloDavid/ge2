@@ -81,37 +81,34 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(97, Short.MAX_VALUE)
+                        .addContainerGap(112, Short.MAX_VALUE)
                         .addComponent(abrir)
                         .addGap(97, 97, 97))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(compilar, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(75, 75, 75)
                         .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 154, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane3))
-                .addGap(160, 160, 160)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane6))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(compilar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -129,7 +126,7 @@ public class Interfaz extends javax.swing.JFrame {
                 StringTokenizer st =new StringTokenizer(cadena);
 		
          for(int i=0;i<vector.length&&st.hasMoreTokens();i++)
-	{                       Pattern pat = Pattern.compile("[+|;|:|(|)|[|]|{|}|,|-|*|/|>|<|=|!|&|$]");
+	{                       Pattern pat = Pattern.compile("[+|;|:|(|)|[|]|{|}|,|-|`|*|/|>|<|=|!|&|$]");
                                 String s2;
 				s2 = st.nextToken();
                                 this.vector[i]=s2;
@@ -137,7 +134,7 @@ public class Interfaz extends javax.swing.JFrame {
 				if (mat.matches()==true)
 				{
                                     this.Csalida.append("Caracter especial : "+this.vector[i]+" ");
-                                  //   this.aux1.append("Caracter especial ");
+                                  
                                     this.Csalida.append("\n");
                                     
 				} 
@@ -181,7 +178,7 @@ public class Interfaz extends javax.swing.JFrame {
 				if (mat.matches()==true&&mat1.matches()==false)
 				{
                                     this.Csalida.append("identificador : "+this.vector[i]+" ");
-                                  //  this.aux1.append("identificador  ");
+                                
                                     this.Csalida.append("\n");
                                  
 				} 
@@ -203,7 +200,7 @@ public class Interfaz extends javax.swing.JFrame {
 				if (mat.matches()==true)
 				{
                                     this.Csalida.append("Operador compuesto : "+this.vector[i]+" ");
-                                 //  this.aux1.append("Operador compuesto ");
+                                
                                     this.Csalida.append("\n");
                                     
 				} 
@@ -224,7 +221,7 @@ public class Interfaz extends javax.swing.JFrame {
 				if (mat.matches()==true)
 				{
                                     this.Csalida.append("palabra reservada : "+this.vector[i]+" "); 
-                                 //  this.aux1.append("palabra reservada ");
+                                 
                                     this.Csalida.append("\n");
                                     
 				} 
@@ -245,7 +242,7 @@ public class Interfaz extends javax.swing.JFrame {
 				if (mat.matches()==true)
 				{
                                     this.Csalida.append("int : "+this.vector[i]+" "); 
-                                //   this.aux1.append("int ");
+                               
                                     this.Csalida.append("\n");
                                     
 				} 
@@ -266,7 +263,7 @@ public class Interfaz extends javax.swing.JFrame {
 				if (mat.matches()==true)
 				{
                                     this.Csalida.append("String : "+this.vector[i]+" "); 
-                                //   this.aux1.append("String "); 
+                                 
                                     this.Csalida.append("\n");
                                     
 				} 
@@ -287,7 +284,7 @@ public class Interfaz extends javax.swing.JFrame {
 				if (mat.matches()==true)
 				{
                                     this.Csalida.append("Char : "+this.vector[i]+" ");
-                                 //  this.aux1.append("Char ");
+                                
                                     this.Csalida.append("\n");
                                     
 				} 
@@ -310,7 +307,6 @@ public class Interfaz extends javax.swing.JFrame {
 				if (mat.matches()==true)
 				{
                                     this.Csalida.append("Boolean : "+this.vector[i]+" "); 
-                                   // this.aux1.append("Boolean ");
                                     this.Csalida.append("\n");
                                     
 				} else{}
@@ -331,7 +327,7 @@ public class Interfaz extends javax.swing.JFrame {
 				if (mat.matches()==true)
 				{
                                     this.Csalida.append("Float :"+this.vector[i]+" "); 
-                                  //  this.aux1.append("Float "); 
+                                  
                                     this.Csalida.append("\n");
                                     
 				} 
@@ -346,7 +342,7 @@ public class Interfaz extends javax.swing.JFrame {
                 StringTokenizer st =new StringTokenizer(cadena);
 		
          for(int i=0;i<vector.length&&st.hasMoreTokens();i++){
-            Pattern pat = Pattern.compile("[+|;|:|(|)|[|]|{|}|,|-|*|/|>|<|=|!|&|$]");
+            Pattern pat = Pattern.compile("[+|;|:|(|)|[|]|{|}|,|-|`|*|/|>|<|=|!|&|$]");
             Pattern pat1 = Pattern.compile("^//.*");
             Pattern pat2 = Pattern.compile("[a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)" ); 
             Pattern pat3 = Pattern.compile("&&|==|!=|<=|>=");
@@ -409,385 +405,218 @@ public class Interfaz extends javax.swing.JFrame {
          public void EDeclaracion()
         {
             String cadena =this.Ingreso.getText();
-            StringTokenizer st =new StringTokenizer(cadena);
-		
-         for(int i=0;i<vector.length&&st.hasMoreTokens();i++)
-	{                       Pattern pat = Pattern.compile("int|float|boolean|char|string");
-                                Pattern pat1 = Pattern.compile("[a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)");
-                                 Pattern pat2 = Pattern.compile("[;]");
-                                
+           StringTokenizer st =new StringTokenizer(cadena,"`");
+		 for(int i=0;i<vector.length&&st.hasMoreTokens();i++)
+	{ 
+                            Pattern pat = Pattern.compile("[\\s]*(int|float|boolean|char|String)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][;|;][\\s]*");
                                 String s2;
 				s2 = st.nextToken();
-                                this.vector[i]=s2;
-				Matcher mat = pat.matcher(this.vector[0]);
-                               
-                                Matcher mat1 = pat1.matcher(this.vector[1]);
-                                
-                                Matcher mat2 = pat2.matcher(this.vector[2]);
-                                 
-                                
-				if (mat.matches()==true&&mat1.matches()==true&&mat2.matches()==true)
+                                Matcher mat = pat.matcher(s2);
+                
+				if (mat.matches()==true)
 				{
-                                    this.error1.setText("Estructura Declaracion"); 
+                                    this.error1.append("Estructura Declaracion\n"); 
                                    
                                     
-				} else{
-                               // this.error1.setText("error sintactico");
-                                }
-        }	
-   
+				} 
+        	
+        }
         
         }
      public void EDeclaracionFuncion()
         {
             String cadena =this.Ingreso.getText();
-            StringTokenizer st =new StringTokenizer(cadena);
-		
-         for(int i=0;i<vector.length&&st.hasMoreTokens();i++)
-	{                    
-            String s2;
-				s2 = st.nextToken();
-                                this.vector[i]=s2;
-                                Pattern pat = Pattern.compile("public|private|protect");
-                                Pattern pat1 = Pattern.compile("void|int|float|String|Char|boolean");
-                                Pattern pat2 = Pattern.compile("[a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)");
-                                Pattern pat3 = Pattern.compile("[(]");
-                                Pattern pat4 = Pattern.compile("[)]");
-                                Pattern pat5 = Pattern.compile("[{]");
-                                Pattern pat8 = Pattern.compile("int|float|boolean|char|String");
-                                Pattern pat9 = Pattern.compile("[a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)");
-                                Pattern pat10 = Pattern.compile("[;]");
-                                Pattern pat6 = Pattern.compile("[}]");
-                                
-                                
-                               
-       				Matcher mat = pat.matcher(this.vector[0]);
-                                Matcher mat1 = pat1.matcher(this.vector[1]);
-                                Matcher mat2 = pat2.matcher(this.vector[2]);
-                                Matcher mat3 = pat3.matcher(this.vector[3]);
-                                Matcher mat4 = pat4.matcher(this.vector[4]);
-                                Matcher mat5 = pat5.matcher(this.vector[5]);
-                                Matcher mat6 = pat6.matcher(this.vector[9]);
-                                Matcher mat8 = pat8.matcher(this.vector[6]);
-                                Matcher mat9 = pat9.matcher(this.vector[7]);
-                                Matcher mat10 = pat10.matcher(this.vector[8]);
-                               
-                                                              
-				if (mat.matches()==true&&mat1.matches()==true&&mat2.matches()==true&&mat3.matches()==true
-                                        &&mat4.matches()==true&&mat5.matches()==true&&mat6.matches()==true
-                                        &&mat8.matches()==true&&mat9.matches()==true&&mat10.matches()==true)
+            StringTokenizer st =new StringTokenizer(cadena,"`");
+ for(int i=0;i<vector.length&&st.hasMoreTokens();i++)
+	{ 
+Pattern pat1 = Pattern.compile("[\\s]*(private|public|protect)[\\s](void|int|float|String|char|boolean)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s]*[(][\\s][)][\\s][{][\\s]*(int|float|boolean|char|String)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][;|;][\\s]*[}][\\s]*");
+                                String s2 ;
+                                s2 = st.nextToken();
+                                Matcher mat = pat1.matcher(s2);
+                     
+				if (mat.matches()==true)
 				{
                                    
-                                    this.error1.setText("Estructura de funcion"); 
+                                    this.error1.append("Estructura de funcion\n"); 
                                   
                                     
-				}   else
-                                {
-                             //   this.error1.setText("error sintactico");
-                                }
-                                
+				} 
+        }
+        
+        }
+        public void EDeclaracionIf()
+        {
+            String cadena =this.Ingreso.getText();
+            StringTokenizer st =new StringTokenizer(cadena,"`");
+		
+         for(int i=0;i<vector.length&&st.hasMoreTokens();i++)
+	{                    
+                                String s2;
+				s2 = st.nextToken();
+                                this.vector[i]=s2;
+   Pattern pat = Pattern.compile("[\\s]*(if)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>=|<|>)[\\s]-*\\d+[\\s][)][\\s][{][\\s]*then[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s]-*\\d+[\\s][+|-|*|/|][\\s]-*\\d+[\\s][;][\\s]*[}][\\s]*");
+                            
+                               
+       				Matcher mat = pat.matcher(s2);
+                               
+				if (mat.matches()==true)
+				{
+                                    
+                                    this.error1.append("Estructura if\n"); 
+                  
+				} 
+        }	
+   }
+     public void EDeclaracionWhile()
+        {
+            String cadena =this.Ingreso.getText();
+            StringTokenizer st =new StringTokenizer(cadena,"`");
+		
+         for(int i=0;i<vector.length&&st.hasMoreTokens();i++)
+	{                    
+                                String s2;
+				s2 = st.nextToken();
+   Pattern pat = Pattern.compile("[\\s]*(while)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>=|<|>)[\\s]-*\\d+[\\s][)][\\s][{][\\s]*do[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s]-*\\d+[\\s][+|-|*|/|][\\s]-*\\d+[\\s][;][\\s]*[}][\\s]*");
+                                Matcher mat = pat.matcher(s2);
+				if (mat.matches()==true)
+				{
+                                    
+                                    this.error1.append("Estructura while\n"); 
+                  
+				} 
         }	
        
         
         }
-     public void EDeclaracionIf()
+      public void EDeclaracionDoWhile()
         {
             String cadena =this.Ingreso.getText();
-            StringTokenizer st =new StringTokenizer(cadena);
+            StringTokenizer st =new StringTokenizer(cadena,"`");
 		
          for(int i=0;i<vector.length&&st.hasMoreTokens();i++)
 	{                    
-            String s2;
+                                 String s2;
 				s2 = st.nextToken();
                                 this.vector[i]=s2;
-                                Pattern pat = Pattern.compile("if");
-                                Pattern pat1 = Pattern.compile("[(]");
-                                Pattern pat2 = Pattern.compile("-*\\d+");
-                                Pattern pat3 = Pattern.compile("&&|==|!=|<=|>=|<|>");
-                                Pattern pat4 = Pattern.compile("-*\\d+");
-                                Pattern pat5 = Pattern.compile("[)]");
-                                Pattern pat6 = Pattern.compile("[{]");
-                                Pattern pat7 = Pattern.compile("then");
-                                Pattern pat8 = Pattern.compile("[a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)");
-                                Pattern pat9 = Pattern.compile("[=]");
-                                Pattern pat10 = Pattern.compile("-*\\d+");
-                                Pattern pat11 = Pattern.compile("[+|-|*|/|]");
-                              Pattern pat12 = Pattern.compile("-*\\d+");
-                              Pattern pat13 = Pattern.compile("[;]");
-                                Pattern pat14 = Pattern.compile("[}]");
-                                
+Pattern pat = Pattern.compile("[\\s]*(do)[\\s][{][\\s]*[a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s]-*\\d+[\\s][+|-|*|/|][\\s]-*\\d+[\\s][;][\\s]*[}][\\s]*(while)[\\s][(][\\s]-*\\d+[\\s](&&|==|!=|<=|>=|<|>)[\\s]-*\\d+[\\s][)][\\s]*");
+       				Matcher mat = pat.matcher(s2);
                                
-       				Matcher mat = pat.matcher(this.vector[0]);
-                               
-                                Matcher mat1 = pat1.matcher(this.vector[1]);
-                                
-                                Matcher mat2 = pat2.matcher(this.vector[2]);
-                                Matcher mat3 = pat3.matcher(this.vector[3]);
-                                Matcher mat4 = pat4.matcher(this.vector[4]);
-                                Matcher mat5 = pat5.matcher(this.vector[5]);
-                                Matcher mat6 = pat6.matcher(this.vector[6]);
-                                Matcher mat7 = pat7.matcher(this.vector[7]);
-                                Matcher mat8 = pat8.matcher(this.vector[8]);
-                                Matcher mat9 = pat9.matcher(this.vector[9]);
-                                Matcher mat10 = pat10.matcher(this.vector[10]);
-                                Matcher mat11 = pat11.matcher(this.vector[11]);
-                                Matcher mat12 = pat12.matcher(this.vector[12]);
-                                Matcher mat13 = pat13.matcher(this.vector[13]);
-                                Matcher mat14 = pat14.matcher(this.vector[14]);
-				if (mat.matches()==true&&mat1.matches()==true&&mat2.matches()==true&&mat3.matches()==true
-                                        &&mat4.matches()==true&&mat5.matches()==true&&mat6.matches()==true&&mat7.matches()==true
-                                        &&mat8.matches()==true&&mat9.matches()==true&&mat10.matches()==true&&mat11.matches()==true
-                                        &&mat12.matches()==true&&mat13.matches()==true&&mat14.matches()==true)
+				if (mat.matches()==true)
 				{
                                     
-                                    this.error1.setText("Estructura if"); 
-                                  
-                                    
-				} else{
-                                this.error1.setText("error sintactico");
-                                }
-        }	
-       
-        
-        }
-          public void EDeclaracionWhile()
-        {
-            String cadena =this.Ingreso.getText();
-            StringTokenizer st =new StringTokenizer(cadena);
-		
-         for(int i=0;i<vector.length&&st.hasMoreTokens();i++)
-	{                    
-            String s2;
-				s2 = st.nextToken();
-                                this.vector[i]=s2;
-                                Pattern pat = Pattern.compile("while");
-                                Pattern pat1 = Pattern.compile("[(]");
-                                Pattern pat2 = Pattern.compile("-*\\d+");
-                                Pattern pat3 = Pattern.compile("&&|==|!=|<=|>=|<|>");
-                                Pattern pat4 = Pattern.compile("-*\\d+");
-                                Pattern pat5 = Pattern.compile("[)]");
-                                Pattern pat6 = Pattern.compile("[{]");
-                                Pattern pat7 = Pattern.compile("do");
-                                Pattern pat8 = Pattern.compile("[a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)");
-                                Pattern pat9 = Pattern.compile("[=]");
-                                Pattern pat10 = Pattern.compile("-*\\d+");
-                                Pattern pat11 = Pattern.compile("[+|-|*|/|]");
-                              Pattern pat12 = Pattern.compile("-*\\d+");
-                              Pattern pat13 = Pattern.compile("[;]");
-                                Pattern pat14 = Pattern.compile("[}]");
-                                
-                               
-       				Matcher mat = pat.matcher(this.vector[0]);
-                               
-                                Matcher mat1 = pat1.matcher(this.vector[1]);
-                                
-                                Matcher mat2 = pat2.matcher(this.vector[2]);
-                                Matcher mat3 = pat3.matcher(this.vector[3]);
-                                Matcher mat4 = pat4.matcher(this.vector[4]);
-                                Matcher mat5 = pat5.matcher(this.vector[5]);
-                                Matcher mat6 = pat6.matcher(this.vector[6]);
-                                Matcher mat7 = pat7.matcher(this.vector[7]);
-                                Matcher mat8 = pat8.matcher(this.vector[8]);
-                                Matcher mat9 = pat9.matcher(this.vector[9]);
-                                Matcher mat10 = pat10.matcher(this.vector[10]);
-                                Matcher mat11 = pat11.matcher(this.vector[11]);
-                                Matcher mat12 = pat12.matcher(this.vector[12]);
-                                Matcher mat13 = pat13.matcher(this.vector[13]);
-                                Matcher mat14 = pat14.matcher(this.vector[14]);
-				if (mat.matches()==true&&mat1.matches()==true&&mat2.matches()==true&&mat3.matches()==true
-                                        &&mat4.matches()==true&&mat5.matches()==true&&mat6.matches()==true&&mat7.matches()==true
-                                        &&mat8.matches()==true&&mat9.matches()==true&&mat10.matches()==true&&mat11.matches()==true
-                                        &&mat12.matches()==true&&mat13.matches()==true&&mat14.matches()==true)
-				{
-                                    
-                                    this.error1.setText("Estructura while"); 
-                                 
-                                    
-				} else
-                                {
-                              //  this.error1.setText("error sintactico");
-                                }
-        }	
-       
-        
-        }
-          
-          public void EDeclaracionDoWhile()
-        {
-            String cadena =this.Ingreso.getText();
-            StringTokenizer st =new StringTokenizer(cadena);
-		
-         for(int i=0;i<vector.length&&st.hasMoreTokens();i++)
-	{                    
-            String s2;
-				s2 = st.nextToken();
-                                this.vector[i]=s2;
-                                Pattern pat = Pattern.compile("do");
-                                Pattern pat1 = Pattern.compile("[{]");
-                                Pattern pat2 = Pattern.compile("[a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)");
-                                Pattern pat3 = Pattern.compile("[=]");
-                                Pattern pat4 = Pattern.compile("-*\\d+");
-                                Pattern pat5 = Pattern.compile("[+|-|*|/|]");
-                                Pattern pat6 = Pattern.compile("-*\\d+");
-                                Pattern pat7 = Pattern.compile("[;]");
-                                Pattern pat8 = Pattern.compile("[}]");
-                                Pattern pat9 = Pattern.compile("while");
-                                Pattern pat10 = Pattern.compile("[(]");
-                                Pattern pat11 = Pattern.compile("-*\\d+");
-                                Pattern pat12 = Pattern.compile("&&|==|!=|<=|>=|<|>");
-                                Pattern pat13 = Pattern.compile("-*\\d+");
-                                Pattern pat14 = Pattern.compile("[)]");
-  
-       				Matcher mat = pat.matcher(this.vector[0]);
-                               
-                                Matcher mat1 = pat1.matcher(this.vector[1]);
-                                
-                                Matcher mat2 = pat2.matcher(this.vector[2]);
-                                Matcher mat3 = pat3.matcher(this.vector[3]);
-                                Matcher mat4 = pat4.matcher(this.vector[4]);
-                                Matcher mat5 = pat5.matcher(this.vector[5]);
-                                Matcher mat6 = pat6.matcher(this.vector[6]);
-                                Matcher mat7 = pat7.matcher(this.vector[7]);
-                                Matcher mat8 = pat8.matcher(this.vector[8]);
-                                Matcher mat9 = pat9.matcher(this.vector[9]);
-                                Matcher mat10 = pat10.matcher(this.vector[10]);
-                                Matcher mat11 = pat11.matcher(this.vector[11]);
-                                Matcher mat12 = pat12.matcher(this.vector[12]);
-                                Matcher mat13 = pat13.matcher(this.vector[13]);
-                                Matcher mat14 = pat14.matcher(this.vector[14]);
-				if (mat.matches()==true&&mat1.matches()==true&&mat2.matches()==true&&mat3.matches()==true
-                                        &&mat4.matches()==true&&mat5.matches()==true&&mat6.matches()==true&&mat7.matches()==true
-                                        &&mat8.matches()==true&&mat9.matches()==true&&mat10.matches()==true&&mat11.matches()==true
-                                        &&mat12.matches()==true&&mat13.matches()==true&&mat14.matches()==true)
-				{
-                                    
-                                    this.error1.setText("Estructura do while"); 
+                                 this.error1.append("Estructura do while\n"); 
                                    
                                     
-				} else{
-                             //   this.error1.setText("error sintactico");
-                                }
+				} 
         }	
-      
-        
-        }
-     public void EDeclaracionIfElse()
+       }
+      public void EDeclaracionIfElse()
         {
             String cadena =this.Ingreso.getText();
-            StringTokenizer st =new StringTokenizer(cadena);
+            StringTokenizer st =new StringTokenizer(cadena,"`");
 		
          for(int i=0;i<vector.length&&st.hasMoreTokens();i++)
 	{                    
-            String s2;
+                                String s2;
 				s2 = st.nextToken();
-                                this.vector[i]=s2;
-                                Pattern pat = Pattern.compile("if");
-                                Pattern pat1 = Pattern.compile("[(]");
-                                Pattern pat2 = Pattern.compile("-*\\d+");
-                                Pattern pat3 = Pattern.compile("&&|==|!=|<=|>=|<|>");
-                                Pattern pat4 = Pattern.compile("-*\\d+");
-                                Pattern pat5 = Pattern.compile("[)]");
-                                Pattern pat6 = Pattern.compile("[{]");
-                                Pattern pat7 = Pattern.compile("then");
-                                Pattern pat8 = Pattern.compile("[a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)");
-                                Pattern pat9 = Pattern.compile("[=]");
-                                Pattern pat10 = Pattern.compile("-*\\d+");
-                                Pattern pat11 = Pattern.compile("[+|-|*|/|]");
-                                Pattern pat12 = Pattern.compile("-*\\d+");
-                                Pattern pat13 = Pattern.compile("[;]");
-                                Pattern pat14 = Pattern.compile("[}]");
-                                Pattern pat15 = Pattern.compile("else");
-                                Pattern pat16 = Pattern.compile("[{]");
-                                Pattern pat17 = Pattern.compile("[a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)");
-                                Pattern pat18 = Pattern.compile("[=]");
-                                Pattern pat19 = Pattern.compile("-*\\d+");
-                                Pattern pat20 = Pattern.compile("[+|-|*|/|]");
-                              Pattern pat21 = Pattern.compile("-*\\d+");
-                              Pattern pat22 = Pattern.compile("[;]");
-                               Pattern pat23 = Pattern.compile("[}]");
-       				Matcher mat = pat.matcher(this.vector[0]);
+ this.vector[i]=s2;
+Pattern pat = Pattern.compile("[\\s]*(if)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>=|<|>)[\\s]-*\\d+[\\s][)][\\s][{][\\s]*then[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s]-*\\d+[\\s][+|-|*|/|][\\s]-*\\d+[\\s][;][\\s]*[}][\\s](else)[\\s][{][\\s]*[a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s]-*\\d+[\\s][+|-|*|/][\\s]-*\\d+[\\s][;][\\s]*[}][\\s]*");
+    
                                
-                                Matcher mat1 = pat1.matcher(this.vector[1]);
-                                
-                                Matcher mat2 = pat2.matcher(this.vector[2]);
-                                Matcher mat3 = pat3.matcher(this.vector[3]);
-                                Matcher mat4 = pat4.matcher(this.vector[4]);
-                                Matcher mat5 = pat5.matcher(this.vector[5]);
-                                Matcher mat6 = pat6.matcher(this.vector[6]);
-                                Matcher mat7 = pat7.matcher(this.vector[7]);
-                                Matcher mat8 = pat8.matcher(this.vector[8]);
-                                Matcher mat9 = pat9.matcher(this.vector[9]);
-                                Matcher mat10 = pat10.matcher(this.vector[10]);
-                                Matcher mat11 = pat11.matcher(this.vector[11]);
-                                Matcher mat12 = pat12.matcher(this.vector[12]);
-                                Matcher mat13 = pat13.matcher(this.vector[13]);
-                                Matcher mat14 = pat14.matcher(this.vector[14]);
-                                Matcher mat15 = pat15.matcher(this.vector[15]);
-                                Matcher mat16 = pat16.matcher(this.vector[16]);
-                                Matcher mat17 = pat17.matcher(this.vector[17]);
-                                Matcher mat18 = pat18.matcher(this.vector[18]);
-                                Matcher mat19 = pat19.matcher(this.vector[19]);
-                                Matcher mat20 = pat20.matcher(this.vector[20]);
-                                Matcher mat21 = pat21.matcher(this.vector[21]);
-                                Matcher mat22 = pat22.matcher(this.vector[22]);
-                                Matcher mat23 = pat23.matcher(this.vector[23]);
-				if (mat.matches()==true&&mat1.matches()==true&&mat2.matches()==true&&mat3.matches()==true
-                                        &&mat4.matches()==true&&mat5.matches()==true&&mat6.matches()==true&&mat7.matches()==true
-                                        &&mat8.matches()==true&&mat9.matches()==true&&mat10.matches()==true&&mat11.matches()==true
-                                        &&mat12.matches()==true&&mat13.matches()==true&&mat14.matches()==true&&mat15.matches()==true
-                                        &&mat16.matches()==true&&mat17.matches()==true&&mat18.matches()==true&&mat19.matches()==true
-                                        &&mat20.matches()==true&&mat21.matches()==true&&mat22.matches()==true&&mat23.matches()==true)
+       				Matcher mat = pat.matcher(s2);
+                               
+				if (mat.matches()==true)
 				{
                                     
-                                    this.error1.setText("Estructura if else"); 
+                                    this.error1.append("Estructura if else\n"); 
                                    
                                     
-				} else
-                                {
-                              //  this.error1.setText("error sintactico");
-                                }
+				} 
         }	
        
         
         }
-  /*   public void Elogica()
+       public void EAritetica()
      {
          String cadena =this.Ingreso.getText();
-          StringTokenizer st =new StringTokenizer(cadena);
+          StringTokenizer st =new StringTokenizer(cadena,"`");
 		
          for(int i=0;i<vector.length&&st.hasMoreTokens();i++)
 	{                    String s2;
 				s2 = st.nextToken();
-                                 Pattern pat = Pattern.compile("-*\\d+");
-                                 Pattern pat1 = Pattern.compile("[+|-|*|/]");
-                                 Pattern pat2 = Pattern.compile("-*\\d+");
-                                 Pattern pat3 = Pattern.compile("[=]");
-                                 Pattern pat4 = Pattern.compile("-*\\d+");
-                                 Pattern pat5 = Pattern.compile("[;]");
-                                this.vector[i]=s2;
-                                System.out.println(this.vector[i]);
-				Matcher mat = pat.matcher(this.vector[0]);
-                                Matcher mat1 = pat1.matcher(this.vector[1]);
-                                
-                                Matcher mat2 = pat2.matcher(this.vector[2]);
-                                Matcher mat3 = pat3.matcher(this.vector[3]);
-                                Matcher mat4 = pat4.matcher(this.vector[4]);
-                                Matcher mat5 = pat5.matcher(this.vector[5]);
-				if (mat.matches()==true&&mat1.matches()==true&&mat2.matches()==true&&mat3.matches()==true&&mat4.matches()==true&&mat5.matches()==true)
-				{
-                                    this.error1.setText("Estructura Logica"); 
+ Pattern pat = Pattern.compile("[\\s]*((-*\\d+)|(-*\\d+,\\d+))[\\s]+[+|-|*|/][\\s]((-*\\d+)|(-*\\d+,\\d+))[\\s][=][\\s]((-*\\d+)|(-*\\d+,\\d+))[\\s][;][\\s]*");
+                                 
+				Matcher mat = pat.matcher(s2);
+                               
+				if (mat.matches()==true)
+                               {
+                                    this.error1.append("Estructura Aritmetica\n"); 
                                    
                                     
-				} else{
-                                //this.error1.setText("error sintactico");
-                                }
+				} 
      
      }
-     }*/
+     }
+        public void ELogica()
+     {
+         String cadena =this.Ingreso.getText();
+          StringTokenizer st =new StringTokenizer(cadena,"`");
+		
+         for(int i=0;i<vector.length&&st.hasMoreTokens();i++)
+	{                    String s2;
+				s2 = st.nextToken();
+ Pattern pat = Pattern.compile("[\\s]*((-*\\d+)|(-*\\d+,\\d+))[\\s]+[+|-|*|/][\\s]((-*\\d+)|(-*\\d+,\\d+))[\\s][=|<|>|!][=][\\s]((-*\\d+)|(-*\\d+,\\d+))[\\s][;][\\s]*");
+                                 
+				Matcher mat = pat.matcher(s2);
+                               
+				if (mat.matches()==true)
+                               {
+                                    this.error1.append("Estructura Logica\n"); 
+                                   
+                                    
+				} 
+     
+     }
+     }
+     public void ErrorSintactico()
+     {
+          String cadena =this.Ingreso.getText();
+            StringTokenizer st =new StringTokenizer(cadena,"`");
+        for(int i=0;i<vector.length&&st.hasMoreTokens();i++)
+	{ 
+                String s2;
+                s2 = st.nextToken();
+ Pattern pat = Pattern.compile("[\\s]*(int|float|boolean|char|String)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][;|;][\\s]*");
+ Pattern pat1 = Pattern.compile("[\\s]*(private|public|protect)[\\s](void|int|float|String|Char|boolean)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s]*[(][\\s][)][\\s][{][\\s]*(int|float|boolean|char|String)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][;|;][\\s]*[}][\\s]*");
+ Pattern pat2 = Pattern.compile("[\\s]*(if)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>=|<|>)[\\s]-*\\d+[\\s][)][\\s][{][\\s]*then[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s]-*\\d+[\\s][+|-|*|/|][\\s]-*\\d+[\\s][;][\\s]*[}][\\s]*");
+ Pattern pat3 = Pattern.compile("[\\s]*(while)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>=|<|>)[\\s]-*\\d+[\\s][)][\\s][{][\\s]*(do)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s]-*\\d+[\\s][+|-|*|/|][\\s]-*\\d+[\\s][;][\\s]*[}][\\s]*");
+ Pattern pat4 = Pattern.compile("[\\s]*(do)[\\s][{][\\s]*[a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s]-*\\d+[\\s][+|-|*|/|][\\s]-*\\d+[\\s][;][\\s]*[}][\\s]*(while)[\\s][(][\\s]-*\\d+[\\s](&&|==|!=|<=|>=|<|>)[\\s]-*\\d+[\\s][)][\\s]*");
+ Pattern pat5 = Pattern.compile("[\\s]*(if)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>=|<|>)[\\s]-*\\d+[\\s][)][\\s][{][\\s]*then[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s]-*\\d+[\\s][+|-|*|/|][\\s]-*\\d+[\\s][;][\\s]*[}][\\s](else)[\\s][{][\\s]*[a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s]-*\\d+[\\s][+|-|*|/][\\s]-*\\d+[\\s][;][\\s]*[}][\\s]*");
+ Pattern pat6 = Pattern.compile("[\\s]*(-*\\d+)[\\s]+[+|-|*|/][\\s](-*\\d+)[\\s][=][\\s]((-*\\d+)|(-*\\d+,\\d+))[\\s][;][\\s]*");
+ Pattern pat7 = Pattern.compile("[\\s]*((-*\\d+)|(-*\\d+,\\d+))[\\s]+[+|-|*|/][\\s]((-*\\d+)|(-*\\d+,\\d+))[\\s][=|<|>|!][=][\\s]((-*\\d+)|(-*\\d+,\\d+))[\\s][;][\\s]*");
+                            
+                                  Matcher mat = pat.matcher(s2);
+                                  Matcher mat1 = pat1.matcher(s2);
+                                  Matcher mat2 = pat2.matcher(s2); 
+                                  Matcher mat3 = pat3.matcher(s2);
+                                  Matcher mat4 = pat4.matcher(s2);
+                                  Matcher mat5 = pat5.matcher(s2);
+                                  Matcher mat6 = pat6.matcher(s2);
+                                  Matcher mat7 = pat7.matcher(s2);
+                                 
+                                  
+				if (mat.matches()==false&&mat1.matches()==false&&mat2.matches()==false&&mat3.matches()==false&&mat4.matches()==false&&mat5.matches()==false&&mat6.matches()==false&&mat7.matches()==false)
+				{
+                                   
+                                    this.error1.setText("\nError sintactico bloque :\n "+s2); 
+                                  
+                                   
+				}   
+        }
+     }
     private void compilarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compilarActionPerformed
     this.Csalida.setText("");
     this.error1.setText("");
-   // this.aux1.setText("");
     this.VPalabraReservada();
     this.VString();
     this.VBoleano();
@@ -801,11 +630,13 @@ public class Interfaz extends javax.swing.JFrame {
     this.VErorr();
     this.EDeclaracion();   
     this.EDeclaracionFuncion();
+    this.ErrorSintactico();
     this.EDeclaracionIf();
+    this.EDeclaracionWhile();
     this.EDeclaracionIfElse();
     this.EDeclaracionDoWhile();
-    this.EDeclaracionWhile();
-    // this.Elogica();
+    this.EAritetica();
+    this.ELogica();
    //  this.ErrorLinea();     
     }//GEN-LAST:event_compilarActionPerformed
 
@@ -814,12 +645,12 @@ public class Interfaz extends javax.swing.JFrame {
           String direccion="C:\\Users\\DAVID PROAÑO\\Desktop\\CompiladoresAnalisador\\ejemplo.c.txt";
 			FileReader abrir=new FileReader(direccion);
 			BufferedReader br = new BufferedReader(abrir);
-			String cadena=" ";
+			String cadena="";
                         Ingreso.setText(" ");
                         while((cadena=br.readLine())!=null)     {
                            
-                            Ingreso.append("\n");
-                            Ingreso.append(cadena+" ");
+                             Ingreso.append(cadena);
+                             Ingreso.append("\n");
                       
                         }   
                    abrir.close();    
