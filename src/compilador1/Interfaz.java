@@ -34,6 +34,8 @@ public class Interfaz extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         error1 = new javax.swing.JTextArea();
         salir = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tabla = new javax.swing.JTextArea();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -74,6 +76,10 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
+        tabla.setColumns(20);
+        tabla.setRows(5);
+        jScrollPane4.setViewportView(tabla);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -89,13 +95,14 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(compilar, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(75, 75, 75)
                         .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 154, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -104,7 +111,10 @@ public class Interfaz extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane6))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -415,7 +425,7 @@ public class Interfaz extends javax.swing.JFrame {
                 
 				if (mat.matches()==true)
 				{
-                                    this.error1.append("Estructura Declaracion\n"); 
+                                    this.error1.append("Estructura_Declaracion\n"); 
                                    
                                     
 				} 
@@ -437,7 +447,7 @@ Pattern pat1 = Pattern.compile("[\\s]*(private|public|protect)[\\s](void|int|flo
 				if (mat.matches()==true)
 				{
                                    
-                                    this.error1.append("Estructura de funcion\n"); 
+                                    this.error1.append("Estructura_de_funcion\n"); 
                                   
                                     
 				} 
@@ -462,7 +472,7 @@ Pattern pat1 = Pattern.compile("[\\s]*(private|public|protect)[\\s](void|int|flo
 				if (mat.matches()==true)
 				{
                                     
-                                    this.error1.append("Estructura if\n"); 
+                                    this.error1.append("Estructura_if\n"); 
                   
 				} 
         }	
@@ -481,7 +491,7 @@ Pattern pat1 = Pattern.compile("[\\s]*(private|public|protect)[\\s](void|int|flo
 				if (mat.matches()==true)
 				{
                                     
-                                    this.error1.append("Estructura while\n"); 
+                                    this.error1.append("Estructura_while\n"); 
                   
 				} 
         }	
@@ -504,7 +514,7 @@ Pattern pat = Pattern.compile("[\\s]*(do)[\\s][{][\\s]*[a-z]+(\\d*|_*|[a-z]*)(\\
 				if (mat.matches()==true)
 				{
                                     
-                                 this.error1.append("Estructura do while\n"); 
+                                 this.error1.append("Estructura_do_while\n"); 
                                    
                                     
 				} 
@@ -528,7 +538,7 @@ Pattern pat = Pattern.compile("[\\s]*(if)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>
 				if (mat.matches()==true)
 				{
                                     
-                                    this.error1.append("Estructura if else\n"); 
+                                    this.error1.append("Estructura_if_else\n"); 
                                    
                                     
 				} 
@@ -550,7 +560,7 @@ Pattern pat = Pattern.compile("[\\s]*(if)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>
                                
 				if (mat.matches()==true)
                                {
-                                    this.error1.append("Estructura Aritmetica\n"); 
+                                    this.error1.append("Estructura_Aritmetica\n"); 
                                    
                                     
 				} 
@@ -571,7 +581,7 @@ Pattern pat = Pattern.compile("[\\s]*(if)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>
                                
 				if (mat.matches()==true)
                                {
-                                    this.error1.append("Estructura Logica\n"); 
+                                    this.error1.append("Estructura_Logica\n"); 
                                    
                                     
 				} 
@@ -608,15 +618,86 @@ Pattern pat = Pattern.compile("[\\s]*(if)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>
 				if (mat.matches()==false&&mat1.matches()==false&&mat2.matches()==false&&mat3.matches()==false&&mat4.matches()==false&&mat5.matches()==false&&mat6.matches()==false&&mat7.matches()==false)
 				{
                                    
-                                    this.error1.setText("\nError sintactico bloque :\n "+s2); 
+                                    this.error1.setText("\nError sintactico bloque :\n "+s2+"\n"); 
                                   
                                    
 				}   
         }
      }
+     public void Vtabla()
+     {
+         String cadena =this.error1.getText();
+          StringTokenizer st =new StringTokenizer(cadena);
+		
+         for(int i=0;i<vector.length&&st.hasMoreTokens();i++)
+	{                    String s2;
+				s2 = st.nextToken();
+                            Pattern pat = Pattern.compile("Estructura_Declaracion");
+                            Pattern pat1 = Pattern.compile("Estructura_de_funcion");
+                            Pattern pat2 = Pattern.compile("Estructura_if");
+                            Pattern pat3 = Pattern.compile("Estructura_while");
+                            Pattern pat4 = Pattern.compile("Estructura_do_while");
+                            Pattern pat5 = Pattern.compile("Estructura_if_else");
+                            Pattern pat6 = Pattern.compile("Estructura_Aritmetica");
+                            Pattern pat7 = Pattern.compile("Estructura_Logica");
+				Matcher mat = pat.matcher(s2);
+                                Matcher mat1 = pat1.matcher(s2);
+                                Matcher mat2 = pat2.matcher(s2);
+                                Matcher mat3 = pat3.matcher(s2);
+                                Matcher mat4 = pat4.matcher(s2);
+                                Matcher mat5 = pat5.matcher(s2);
+                                Matcher mat6 = pat6.matcher(s2);
+                                Matcher mat7 = pat7.matcher(s2);
+                               
+				if (mat.matches()==true)
+                               {
+                                   this.tabla.append("\nEstructura declaracion :\ntipo de dato\t identificador\tCaracter especialT\n"); 
+                               } 
+                                if (mat1.matches()==true)
+                                {
+                                   this.tabla.append("Estructura funcion:\ntipo de privacidad\ttipo de dato\t identificador\t Caracter especialPI\t Caracter especialPD\t Caracter especialLLI\ttipo de dato\t identificador\tCaracter especialT \tCaracter especialLLD\n"); 
+                               } 
+                                if (mat2.matches()==true)
+                               {
+                                   this.tabla.append("Estructura if:\npalabra reservadaIF\tCaracter especialPI\t int\toperador compuesto\t int\t Caracter especialPD\tCaracter especialLLI\tpalabra reservadaTHEN\tidentificador\tCaracter especialIgual\tint \t Caracter especialOperador\tint\tCaracter especialT\tCaracter especialLLD\n"); 
+                               } 
+                                if (mat3.matches()==true)
+                               {
+                                   this.tabla.append("Estructura while :\npalabra reservadaWHILE\tCaracter especialPI\t int\toperador compuesto\t int\t Caracter especialPD\tCaracter especialLLI\tpalabra reservadaDO\tidentificador\tCaracter especialIgual\tint \t Caracter especialOperador\tint\tCaracter especialT\tCaracter especialLLD\n"); 
+                               } 
+                                if (mat4.matches()==true)
+                               {
+                                   this.tabla.append("Estructura do while:\npalabra reservadaDO\tCaracter especialLLI\tidentificador\tCaracter especialIgual\tint \t Caracter especialOperador\tint\tCaracter especialT\tCaracter especialLLD\tpalabra reservadaWHILE\tCaracter especialPI\t int\toperador compuesto\t int\t Caracter especialPD\n"); 
+                               } 
+                                if (mat5.matches()==true)
+                               {
+                                   this.tabla.append("Estructura if else:\npalabra reservadaIF\tCaracter especialPI\t int\toperador compuesto\t int\t Caracter especialPD\tCaracter especialLLI\tpalabra reservadaTHEN\tidentificador\tCaracter especialIgual\tint \t Caracter especialOperador\tint\tCaracter especialT\tCaracter especialLLD\tpalabra reservadaELSE\tCaracter especialLLI\tidentificador\tCaracter especialIGUAL\tint\tCaracter especialOPERADOR\tint\tCaracter especialT\tCaracter especialLLD\n"); 
+                              } 
+                                if (mat6.matches()==true)
+                               {
+                                   this.tabla.append("Estructura Aritmetica:\nint o float\tCaracter especialLOPERADOR\tint o float\tOperador CompuestoARITMETICO\tint o float\tCaracter especialT\n"); 
+                               } 
+                                if (mat7.matches()==true)
+                               {
+                                   this.tabla.append("Estructura Logica:\nint o float\tCaracter especialLOPERADOR\tint o float\tOperador Logico\tint o float\tCaracter especialT\n"); 
+                            } 
+                                if (mat.matches()==false&&mat1.matches()==false&&mat2.matches()==false&&mat3.matches()==false&&mat4.matches()==false&&mat5.matches()==false&&mat6.matches()==false&&mat7.matches()==false)
+				{
+                                   
+                                    this.tabla.setText("\nHay un error Sintactico\n "); 
+                                  
+                                   
+				} 
+                               
+                                
+     
+     }
+     
+     }
     private void compilarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compilarActionPerformed
     this.Csalida.setText("");
     this.error1.setText("");
+    this.tabla.setText("");
     this.VPalabraReservada();
     this.VString();
     this.VBoleano();
@@ -637,6 +718,7 @@ Pattern pat = Pattern.compile("[\\s]*(if)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>
     this.EDeclaracionDoWhile();
     this.EAritetica();
     this.ELogica();
+    this.Vtabla();
    //  this.ErrorLinea();     
     }//GEN-LAST:event_compilarActionPerformed
 
@@ -700,8 +782,10 @@ Pattern pat = Pattern.compile("[\\s]*(if)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton salir;
+    private javax.swing.JTextArea tabla;
     // End of variables declaration//GEN-END:variables
 }
