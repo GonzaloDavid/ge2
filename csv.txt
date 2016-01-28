@@ -1,0 +1,100 @@
+palabra reservada : int 
+palabra reservada : public 
+palabra reservada : String 
+palabra reservada : if 
+palabra reservada : then 
+palabra reservada : if 
+palabra reservada : then 
+palabra reservada : else 
+palabra reservada : while 
+palabra reservada : do 
+palabra reservada : do 
+palabra reservada : while 
+Caracter especial : ; 
+Caracter especial : ` 
+Caracter especial : ( 
+Caracter especial : ) 
+Caracter especial : { 
+Caracter especial : ; 
+Caracter especial : } 
+Caracter especial : ` 
+Caracter especial : ( 
+Caracter especial : < 
+Caracter especial : ) 
+Caracter especial : { 
+Caracter especial : = 
+Caracter especial : * 
+Caracter especial : ; 
+Caracter especial : } 
+Caracter especial : ` 
+Caracter especial : ( 
+Caracter especial : < 
+Caracter especial : ) 
+Caracter especial : { 
+Caracter especial : = 
+Caracter especial : * 
+Caracter especial : ; 
+Caracter especial : } 
+Caracter especial : { 
+Caracter especial : = 
+Caracter especial : * 
+Caracter especial : ; 
+Caracter especial : } 
+Caracter especial : ` 
+Caracter especial : ( 
+Caracter especial : < 
+Caracter especial : ) 
+Caracter especial : { 
+Caracter especial : = 
+Caracter especial : * 
+Caracter especial : ; 
+Caracter especial : } 
+Caracter especial : ` 
+Caracter especial : { 
+Caracter especial : = 
+Caracter especial : * 
+Caracter especial : ; 
+Caracter especial : } 
+Caracter especial : ( 
+Caracter especial : < 
+Caracter especial : ) 
+Caracter especial : ` 
+Caracter especial : + 
+Caracter especial : = 
+Caracter especial : ; 
+Caracter especial : ` 
+Caracter especial : + 
+identificador : variable 
+identificador : void 
+identificador : funcion 
+identificador : aux 
+identificador : variable 
+identificador : variable 
+identificador : variable 
+identificador : variable 
+identificador : variable 
+int : 5 
+int : 3 
+int : 5 
+int : 8 
+int : 5 
+int : 3 
+int : 5 
+int : 8 
+int : 5 
+int : 8 
+int : 5 
+int : 3 
+int : 5 
+int : 8 
+int : 5 
+int : 8 
+int : 5 
+int : 3 
+int : 5 
+int : 10 
+int : 15 
+int : 5 
+int : 10 
+int : 15 
+Operador compuesto : <= 

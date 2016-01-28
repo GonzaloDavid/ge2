@@ -1,0 +1,28 @@
+int variable ;
+`
+public void funcion ( ) {
+String aux ;
+}
+`
+if ( 5 < 3 ) { 
+then variable = 5 * 8 ;
+}
+`
+if ( 5 < 3 ) { 
+then variable = 5 * 8 ;
+} else {
+variable = 5 * 8 ;
+}
+`
+while ( 5 < 3 ) { 
+do variable = 5 * 8 ;
+}
+`
+do { 
+ variable = 5 * 8 ;
+} while ( 5 < 3 ) `
+5 + 10 = 15 ; `
+5 + 10 <= 15 ; `
+5 + 10 >= 15 ; `
+5 + 10 != 15 ; `
+5 + 10 == 15 ; 

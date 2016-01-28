@@ -618,7 +618,7 @@ Pattern pat = Pattern.compile("[\\s]*(if)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>
 				if (mat.matches()==false&&mat1.matches()==false&&mat2.matches()==false&&mat3.matches()==false&&mat4.matches()==false&&mat5.matches()==false&&mat6.matches()==false&&mat7.matches()==false)
 				{
                                    
-                                    this.error1.setText("\nError sintactico bloque :\n "+s2+"\n"); 
+                                    this.error1.append("\nError sintactico bloque :\n "+s2+"\n\n"); 
                                   
                                    
 				}   
@@ -694,6 +694,11 @@ Pattern pat = Pattern.compile("[\\s]*(if)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>
      }
      
      }
+     public void semantico()
+     {
+         
+     
+     }
     private void compilarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compilarActionPerformed
     this.Csalida.setText("");
     this.error1.setText("");
@@ -724,7 +729,7 @@ Pattern pat = Pattern.compile("[\\s]*(if)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>
 
     private void abrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abrirActionPerformed
      try{
-          String direccion="C:\\Users\\DAVID PROAÑO\\Desktop\\CompiladoresAnalisador\\ejemplo.c.txt";
+          String direccion="C:\\Users\\DAVID PROAÑO\\Documents\\NetBeansProjects\\Compilador1\\ejemplo.c.txt";
 			FileReader abrir=new FileReader(direccion);
 			BufferedReader br = new BufferedReader(abrir);
 			String cadena="";
@@ -745,9 +750,9 @@ Pattern pat = Pattern.compile("[\\s]*(if)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         
 	try{
-            String direccion1="C:\\Users\\DAVID PROAÑO\\Desktop\\CompiladoresAnalisador\\csv.txt";
+            String direccion1="C:\\Users\\DAVID PROAÑO\\Documents\\NetBeansProjects\\Compilador1\\csv.txt";
 		
-		String cadena=" \n";
+		String cadena="\r\n";
 		File abrir=new File (direccion1);
 		FileWriter  w=new FileWriter(abrir);
 		BufferedWriter bw = new BufferedWriter(w);
