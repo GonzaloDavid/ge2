@@ -17,7 +17,7 @@ public class Interfaz extends javax.swing.JFrame {
   
      public Interfaz() {
         initComponents(); 
-        this.vector = new String[100];
+        this.vector = new String[200];
   }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -36,6 +36,8 @@ public class Interfaz extends javax.swing.JFrame {
         salir = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTextArea();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        Generacion = new javax.swing.JTextArea();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -80,6 +82,10 @@ public class Interfaz extends javax.swing.JFrame {
         tabla.setRows(5);
         jScrollPane4.setViewportView(tabla);
 
+        Generacion.setColumns(20);
+        Generacion.setRows(5);
+        jScrollPane5.setViewportView(Generacion);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -102,7 +108,8 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 154, Short.MAX_VALUE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE)
-                    .addComponent(jScrollPane4))
+                    .addComponent(jScrollPane4)
+                    .addComponent(jScrollPane5))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -111,8 +118,9 @@ public class Interfaz extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -136,7 +144,7 @@ public class Interfaz extends javax.swing.JFrame {
                 StringTokenizer st =new StringTokenizer(cadena);
 		
          for(int i=0;i<vector.length&&st.hasMoreTokens();i++)
-	{                       Pattern pat = Pattern.compile("[+|;|:|(|)|[|]|{|}|,|-|`|*|/|>|<|=|!|&|$]");
+	{                       Pattern pat = Pattern.compile("[+|;|:|(|)|{|[|]||}|,|-|`|*|/|>|<|=|!|&|$|·]");
                                 String s2;
 				s2 = st.nextToken();
                                 this.vector[i]=s2;
@@ -150,7 +158,9 @@ public class Interfaz extends javax.swing.JFrame {
 				} 
                                 
         }	
-}
+} 
+        
+        
 	public void VComentarios()
 	{
 		String cadena =this.Ingreso.getText();
@@ -188,6 +198,7 @@ public class Interfaz extends javax.swing.JFrame {
 				if (mat.matches()==true&&mat1.matches()==false)
 				{
                                     this.Csalida.append("identificador : "+this.vector[i]+" ");
+                                
                                 
                                     this.Csalida.append("\n");
                                  
@@ -386,32 +397,10 @@ public class Interfaz extends javax.swing.JFrame {
 		} 
                                 
         }	
-         }
-	public void ErrorLinea()
-        {try{
-          String direccion="C:\\Users\\DAVID PROAÑO\\Desktop\\CompiladoresAnalisador\\csv.txt";
-			FileReader abrir=new FileReader(direccion);
-			BufferedReader br = new BufferedReader(abrir);
-			String cadena=" ";
-                        error1.setText(" ");
-                        while((cadena=br.readLine())!=null)     {
-                            
-                            if(cadena.equals("Error"))
-                            {
-                            error1.setText("Hay un error en la linea");
-                            }else
-                            {
-                            error1.setText("No hay ningun error");
-                            }
-                      
-                        }   
-                   abrir.close();    
-		}catch(Exception ex)
-		{
-			JOptionPane.showMessageDialog(null, "hay un error"+ex);
-		}
-        }
-        
+     }
+	
+  //*******************************************************************************************************************
+        //SINTACTICO
          public void EDeclaracion()
         {
             String cadena =this.Ingreso.getText();
@@ -426,6 +415,26 @@ public class Interfaz extends javax.swing.JFrame {
 				if (mat.matches()==true)
 				{
                                     this.error1.append("Estructura_Declaracion\n"); 
+                                                                     
+				} 
+        	
+        }
+        
+        }
+           public void EDeclaracionVector()
+        {
+            String cadena =this.Ingreso.getText();
+           StringTokenizer st =new StringTokenizer(cadena,"`");
+		 for(int i=0;i<vector.length&&st.hasMoreTokens();i++)
+	{ 
+                            Pattern pat = Pattern.compile("[\\s]*(int|float|boolean|char|String)[\\s]([a-z]*)[\\s]([)[\\s](\\d+)[\\s](])[\\s][;][\\s]*");
+                                String s2;
+				s2 = st.nextToken();
+                                Matcher mat = pat.matcher(s2);
+                
+				if (mat.matches()==true)
+				{
+                                    this.error1.append("Estructura_Declaracion vector\n"); 
                                    
                                     
 				} 
@@ -439,7 +448,7 @@ public class Interfaz extends javax.swing.JFrame {
             StringTokenizer st =new StringTokenizer(cadena,"`");
  for(int i=0;i<vector.length&&st.hasMoreTokens();i++)
 	{ 
-Pattern pat1 = Pattern.compile("[\\s]*(private|public|protect)[\\s](void|int|float|String|char|boolean)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s]*[(][\\s][)][\\s][{][\\s]*(int|float|boolean|char|String)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][;|;][\\s]*[}][\\s]*");
+Pattern pat1 = Pattern.compile("[\\s]*(private|public|protect)[\\s](void|int|float|String|char|boolean)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s]*[(][\\s](((int|float|boolean|char|String)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s])|((int|float|boolean|char|String)[\\s][{][\\s](-*\\d+)[\\s][}][\\s]))[)][\\s][{][\\s]*(int|float|boolean|char|String)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][;|;][\\s]*[}][\\s]*");
                                 String s2 ;
                                 s2 = st.nextToken();
                                 Matcher mat = pat1.matcher(s2);
@@ -554,8 +563,8 @@ Pattern pat = Pattern.compile("[\\s]*(if)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>
          for(int i=0;i<vector.length&&st.hasMoreTokens();i++)
 	{                    String s2;
 				s2 = st.nextToken();
- Pattern pat = Pattern.compile("[\\s]*((-*\\d+)|(-*\\d+,\\d+))[\\s]+[+|-|*|/][\\s]((-*\\d+)|(-*\\d+,\\d+))[\\s][=][\\s]((-*\\d+)|(-*\\d+,\\d+))[\\s][;][\\s]*");
-                                 
+ Pattern pat = Pattern.compile("[\\s]*((-*\\d+)|(-*\\d+,\\d+)|([a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)))[\\s]+[+|-|*|/][\\s]((-*\\d+)|(-*\\d+,\\d+)|([a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)))[\\s][=][\\s]((-*\\d+)|(-*\\d+,\\d+)|[a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*))[\\s][;][\\s]*");
+                               
 				Matcher mat = pat.matcher(s2);
                                
 				if (mat.matches()==true)
@@ -575,13 +584,49 @@ Pattern pat = Pattern.compile("[\\s]*(if)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>
          for(int i=0;i<vector.length&&st.hasMoreTokens();i++)
 	{                    String s2;
 				s2 = st.nextToken();
- Pattern pat = Pattern.compile("[\\s]*((-*\\d+)|(-*\\d+,\\d+))[\\s]+[+|-|*|/][\\s]((-*\\d+)|(-*\\d+,\\d+))[\\s][=|<|>|!][=][\\s]((-*\\d+)|(-*\\d+,\\d+))[\\s][;][\\s]*");
-                                 
+
+ Pattern pat = Pattern.compile("[\\s]*((-*\\d+)|(-*\\d+,\\d+)|([a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)))[\\s]+[+|-|*|/][\\s]((-*\\d+)|(-*\\d+,\\d+)|([a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)))[\\s][=|<|>|!][=][\\s]((-*\\d+)|(-*\\d+,\\d+)|[a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*))[\\s][;][\\s]*");
+                                
 				Matcher mat = pat.matcher(s2);
                                
 				if (mat.matches()==true)
                                {
                                     this.error1.append("Estructura_Logica\n"); 
+                                   
+                                    
+				} 
+     
+     }
+     }
+         public void EAsignacion()
+     {
+         String cadena =this.Ingreso.getText();
+          StringTokenizer st =new StringTokenizer(cadena,"`");
+		
+         for(int i=0;i<vector.length&&st.hasMoreTokens();i++)
+	{                    String s2;
+				s2 = st.nextToken();
+ Pattern pat = Pattern.compile("[\\s]*(int)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s](-*\\d+)[\\s][;][\\s]*");
+ Pattern pat1 = Pattern.compile("[\\s]*[a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s](-*\\d+)[\\s][;][\\s]*");
+ Pattern pat2 = Pattern.compile("[\\s]*(float)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s](-*\\d+,\\d+)[\\s][;][\\s]*");
+ Pattern pat3 = Pattern.compile("[\\s]*(char)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s]('.')[\\s][;][\\s]*");
+ Pattern pat4 = Pattern.compile("[\\s]*(String)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s](''[a-z].*'')[\\s][;][\\s]*");
+ Pattern pat5 = Pattern.compile("[\\s]*[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s](-*\\d+,\\d+)[\\s][;][\\s]*");
+ Pattern pat6 = Pattern.compile("[\\s]*[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s]('.')[\\s][;][\\s]*");
+ Pattern pat7 = Pattern.compile("[\\s]*[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s](''[a-z].*'')[\\s][;][\\s]*");
+ 
+                               Matcher mat = pat.matcher(s2);
+                               Matcher mat1 = pat1.matcher(s2);
+                               Matcher mat2 = pat2.matcher(s2);
+                               Matcher mat3 = pat3.matcher(s2);
+                               Matcher mat4 = pat4.matcher(s2);
+                               Matcher mat5 = pat5.matcher(s2);
+                               Matcher mat6 = pat6.matcher(s2);
+                               Matcher mat7 = pat7.matcher(s2);
+				if (mat.matches()==true|mat1.matches()==true|mat2.matches()==true|mat3.matches()==true
+                                       | mat4.matches()==true|mat5.matches()==true|mat6.matches()==true|mat7.matches()==true)
+                               {
+                                    this.error1.append("Estructura_Asignacion\n"); 
                                    
                                     
 				} 
@@ -597,14 +642,25 @@ Pattern pat = Pattern.compile("[\\s]*(if)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>
                 String s2;
                 s2 = st.nextToken();
  Pattern pat = Pattern.compile("[\\s]*(int|float|boolean|char|String)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][;|;][\\s]*");
- Pattern pat1 = Pattern.compile("[\\s]*(private|public|protect)[\\s](void|int|float|String|Char|boolean)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s]*[(][\\s][)][\\s][{][\\s]*(int|float|boolean|char|String)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][;|;][\\s]*[}][\\s]*");
- Pattern pat2 = Pattern.compile("[\\s]*(if)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>=|<|>)[\\s]-*\\d+[\\s][)][\\s][{][\\s]*then[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s]-*\\d+[\\s][+|-|*|/|][\\s]-*\\d+[\\s][;][\\s]*[}][\\s]*");
+Pattern pat1 = Pattern.compile("[\\s]*(private|public|protect)[\\s](void|int|float|String|char|boolean)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s]*[(][\\s](((int|float|boolean|char|String)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s])|((int|float|boolean|char|String)[\\s][{][\\s](-*\\d+)[\\s][}][\\s]))[)][\\s][{][\\s]*(int|float|boolean|char|String)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][;|;][\\s]*[}][\\s]*");
+  Pattern pat2 = Pattern.compile("[\\s]*(if)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>=|<|>)[\\s]-*\\d+[\\s][)][\\s][{][\\s]*then[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s]-*\\d+[\\s][+|-|*|/|][\\s]-*\\d+[\\s][;][\\s]*[}][\\s]*");
  Pattern pat3 = Pattern.compile("[\\s]*(while)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>=|<|>)[\\s]-*\\d+[\\s][)][\\s][{][\\s]*(do)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s]-*\\d+[\\s][+|-|*|/|][\\s]-*\\d+[\\s][;][\\s]*[}][\\s]*");
  Pattern pat4 = Pattern.compile("[\\s]*(do)[\\s][{][\\s]*[a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s]-*\\d+[\\s][+|-|*|/|][\\s]-*\\d+[\\s][;][\\s]*[}][\\s]*(while)[\\s][(][\\s]-*\\d+[\\s](&&|==|!=|<=|>=|<|>)[\\s]-*\\d+[\\s][)][\\s]*");
  Pattern pat5 = Pattern.compile("[\\s]*(if)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>=|<|>)[\\s]-*\\d+[\\s][)][\\s][{][\\s]*then[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s]-*\\d+[\\s][+|-|*|/|][\\s]-*\\d+[\\s][;][\\s]*[}][\\s](else)[\\s][{][\\s]*[a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s]-*\\d+[\\s][+|-|*|/][\\s]-*\\d+[\\s][;][\\s]*[}][\\s]*");
- Pattern pat6 = Pattern.compile("[\\s]*(-*\\d+)[\\s]+[+|-|*|/][\\s](-*\\d+)[\\s][=][\\s]((-*\\d+)|(-*\\d+,\\d+))[\\s][;][\\s]*");
- Pattern pat7 = Pattern.compile("[\\s]*((-*\\d+)|(-*\\d+,\\d+))[\\s]+[+|-|*|/][\\s]((-*\\d+)|(-*\\d+,\\d+))[\\s][=|<|>|!][=][\\s]((-*\\d+)|(-*\\d+,\\d+))[\\s][;][\\s]*");
-                            
+ Pattern pat6 = Pattern.compile("[\\s]*((-*\\d+)|(-*\\d+,\\d+)|([a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)))[\\s]+[+|-|*|/][\\s]((-*\\d+)|(-*\\d+,\\d+)|([a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)))[\\s][=][\\s]((-*\\d+)|(-*\\d+,\\d+)|[a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*))[\\s][;][\\s]*");
+  Pattern pat7 = Pattern.compile("[\\s]*((-*\\d+)|(-*\\d+,\\d+)|([a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)))[\\s]+[+|-|*|/][\\s]((-*\\d+)|(-*\\d+,\\d+)|([a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)))[\\s][=|<|>|!][=][\\s]((-*\\d+)|(-*\\d+,\\d+)|[a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*))[\\s][;][\\s]*");
+ Pattern pat8 = Pattern.compile("[\\s]*(int|float|boolean|char|String)[\\s]([)[\\s](-*\\d+)[\\s](])[\\s][;][\\s]*");
+ Pattern pat9 = Pattern.compile("[\\s]*(int)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s](-*\\d+)[\\s][;][\\s]*");
+ Pattern pat10 = Pattern.compile("[\\s]*[a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s](-*\\d+)[\\s][;][\\s]*");
+ Pattern pat11 = Pattern.compile("[\\s]*(float)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s](-*\\d+,\\d+)[\\s][;][\\s]*");
+ Pattern pat12 = Pattern.compile("[\\s]*(char)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s]('.')[\\s][;][\\s]*");
+ Pattern pat13 = Pattern.compile("[\\s]*(String)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s](''[a-z].*'')[\\s][;][\\s]*");
+ Pattern pat14 = Pattern.compile("[\\s]*[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s](-*\\d+,\\d+)[\\s][;][\\s]*");
+ Pattern pat15 = Pattern.compile("[\\s]*[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s]('.')[\\s][;][\\s]*");
+ Pattern pat16 = Pattern.compile("[\\s]*[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][=][\\s](''[a-z].*'')[\\s][;][\\s]*");
+ 
+                              
+                                                                                                   
                                   Matcher mat = pat.matcher(s2);
                                   Matcher mat1 = pat1.matcher(s2);
                                   Matcher mat2 = pat2.matcher(s2); 
@@ -613,9 +669,19 @@ Pattern pat = Pattern.compile("[\\s]*(if)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>
                                   Matcher mat5 = pat5.matcher(s2);
                                   Matcher mat6 = pat6.matcher(s2);
                                   Matcher mat7 = pat7.matcher(s2);
-                                 
+                                  Matcher mat8 = pat8.matcher(s2);
+                                   Matcher mat9 = pat9.matcher(s2);
+                               Matcher mat10 = pat10.matcher(s2);
+                               Matcher mat11 = pat11.matcher(s2);
+                               Matcher mat12 = pat12.matcher(s2);
+                               Matcher mat13 = pat13.matcher(s2);
+                               Matcher mat14 = pat14.matcher(s2);
+                               Matcher mat15 = pat15.matcher(s2);
+                               Matcher mat16 = pat16.matcher(s2);
+                                   
                                   
-				if (mat.matches()==false&&mat1.matches()==false&&mat2.matches()==false&&mat3.matches()==false&&mat4.matches()==false&&mat5.matches()==false&&mat6.matches()==false&&mat7.matches()==false)
+				if (mat.matches()==false&&mat1.matches()==false&&mat2.matches()==false&&mat3.matches()==false&&mat4.matches()==false&&mat5.matches()==false&&mat6.matches()==false&&mat7.matches()==false&&mat8.matches()==false&&mat9.matches()==false&&mat10.matches()==false&&mat11.matches()==false&&mat12.matches()==false
+                                        &&mat13.matches()==false&&mat14.matches()==false&&mat15.matches()==false&&mat16.matches()==false)
 				{
                                    
                                     this.error1.append("\nError sintactico bloque :\n "+s2+"\n\n"); 
@@ -694,15 +760,163 @@ Pattern pat = Pattern.compile("[\\s]*(if)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>
      }
      
      }
-     public void semantico()
-     {
-         
-     
-     }
+    //************************************************************************************************************************
+     //GENERACION DE CODIGO
+     public void GeneradorArchivo()
+         {
+             try{
+            String direccion1="C:\\Users\\DAVID PROAÑO\\Documents\\NetBeansProjects\\Compilador1\\GeneradorArchivo.txt";
+		
+		String cadena="\r\n";
+		File abrir=new File (direccion1);
+		FileWriter  w=new FileWriter(abrir);
+		BufferedWriter bw = new BufferedWriter(w);
+		PrintWriter wr =new PrintWriter(bw);
+                String aux=this.error1.getText();	
+		wr.write(cadena+aux);
+                
+            
+		wr.close();
+		bw.close();
+	}catch(Exception ex)
+	{
+		JOptionPane.showMessageDialog(null, "La direccion del archivo esta incorrecta");
+	}
+             
+         }
+    public int Verificar()
+            
+    {
+        int x =0;
+    try{
+          String direccion="C:\\Users\\DAVID PROAÑO\\Documents\\NetBeansProjects\\Compilador1\\GeneradorArchivo.txt";
+			FileReader abrir=new FileReader(direccion);
+			BufferedReader br = new BufferedReader(abrir);
+			String cadena="";
+                       
+                        while((cadena=br.readLine())!=null) {
+                         Pattern pat = Pattern.compile(".*Error.*");
+                         Matcher mat = pat.matcher(cadena);
+                        if (mat.matches()) {
+                        x=1;
+     JOptionPane.showMessageDialog(null, "NO SE PUEDE GENERAR CODIGO DEBIDO A QUE HAY ERRORES CORRIJA LOS ERRORES");
+                break;
+                
+                    }      
+                 }   
+                   abrir.close();    
+		}catch(Exception ex)
+		{
+			JOptionPane.showMessageDialog(null, "hay un error"+ex);
+		}
+    return x;
+    }   
+    
+    
+    
+    public void CrearDeclaracion()
+    {
+    String cadena =this.Ingreso.getText();
+             if(this.Verificar()==0)
+             {
+            
+                StringTokenizer st =new StringTokenizer(cadena,"`");
+		
+         for(int i=0;i<vector.length&&st.hasMoreTokens();i++)
+	{      Pattern pat = Pattern.compile("[\\s]*(int|float|boolean|char|String)[\\s][a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)[\\s][;|;][\\s]*");
+                            String s2;
+				s2 = st.nextToken();
+                                this.vector[i]=s2;
+				Matcher mat = pat.matcher(s2);
+				if (mat.matches()==true)
+				{String aux ;
+                                   aux="\nR"+(i+1);
+                                   Generacion.append(aux);
+                                    
+		} 
+            }	
+    }
+                             
+                      
+                        }   
+                  
+     public void CrearExpresionesAritmeticas()
+    {
+    String cadena =this.Ingreso.getText();
+             if(this.Verificar()==0)
+             {
+            
+                StringTokenizer st =new StringTokenizer(cadena,"`");
+		
+         for(int i=0;i<vector.length&&st.hasMoreTokens();i++)
+	{     Pattern pat = Pattern.compile("[\\s]*((-*\\d+)|(-*\\d+,\\d+)|([a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)))[\\s]+[+|-|*|/][\\s]((-*\\d+)|(-*\\d+,\\d+)|([a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)))[\\s][=][\\s]((-*\\d+)|(-*\\d+,\\d+)|[a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*))[\\s][;][\\s]*");
+                                String s2;
+				s2 = st.nextToken();
+                                this.vector[i]=s2;
+				Matcher mat = pat.matcher(s2);
+				if (mat.matches()==true)
+				{
+                          StringTokenizer st1 =new StringTokenizer(s2);
+                           for(int j=0;j<vector.length&&st1.hasMoreTokens();j++)
+                            {
+                         Pattern pat1 = Pattern.compile("-*\\d+");
+                         String s4;
+                         s4 = st1.nextToken();
+                         this.vector[i]=s4;
+                        Matcher mat1 = pat1.matcher(s4);
+                        if (mat1.matches()==true)
+                        {    String  aux="";
+                             aux+="\nStore R"+(i+1)+"->"+s4;
+                         aux+="\nLoad R"+(i+1)+"->"+s4;
+                        Generacion.append(aux);
+                            }
+                           
+                            }
+                          } 
+                    }	
+            }
+      }  
+     public void CrearExpresionesLogica()
+    {
+    String cadena =this.Ingreso.getText();
+             if(this.Verificar()==0)
+             {
+           StringTokenizer st =new StringTokenizer(cadena,"`");
+           for(int i=0;i<vector.length&&st.hasMoreTokens();i++)
+	{     
+  Pattern pat = Pattern.compile("[\\s]*((-*\\d+)|(-*\\d+,\\d+)|([a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)))[\\s]+[+|-|*|/][\\s]((-*\\d+)|(-*\\d+,\\d+)|([a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*)))[\\s][=|<|>|!][=][\\s]((-*\\d+)|(-*\\d+,\\d+)|[a-z]+(\\d*|_*|[a-z]*)(\\d*|[a-z]*))[\\s][;][\\s]*");
+                                String s2;
+				s2 = st.nextToken();
+                                this.vector[i]=s2;
+				Matcher mat = pat.matcher(s2);
+				if (mat.matches()==true)
+				{
+                           StringTokenizer st1 =new StringTokenizer(s2);
+                           for(int j=0;j<vector.length&&st1.hasMoreTokens();j++)
+                            {
+                        Pattern pat1 = Pattern.compile("-*\\d+");
+                        String s4;
+                        s4 = st1.nextToken();
+                        this.vector[i]=s4;
+                        Matcher mat1 = pat1.matcher(s4);
+                        if (mat1.matches()==true)
+                        {    String  aux="";
+                             aux+="\nStore R"+(i+1)+"->"+s4;
+                         aux+="\nLoad R"+(i+1)+"->"+s4;
+                        Generacion.append(aux);
+                            }
+                           
+                            }
+                          } 
+                    }	
+            }
+      }  
+                   
     private void compilarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compilarActionPerformed
     this.Csalida.setText("");
     this.error1.setText("");
     this.tabla.setText("");
+    this.Generacion.setText("");
     this.VPalabraReservada();
     this.VString();
     this.VBoleano();
@@ -719,12 +933,18 @@ Pattern pat = Pattern.compile("[\\s]*(if)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>
     this.ErrorSintactico();
     this.EDeclaracionIf();
     this.EDeclaracionWhile();
-    this.EDeclaracionIfElse();
+   this.EDeclaracionIfElse();
     this.EDeclaracionDoWhile();
     this.EAritetica();
     this.ELogica();
-    this.Vtabla();
-   //  this.ErrorLinea();     
+    this.EAsignacion();
+    this.Vtabla(); 
+    this.GeneradorArchivo();
+    this.CrearDeclaracion();
+    this.CrearExpresionesAritmeticas();
+   //this.EDeclaracionVector();
+    
+    
     }//GEN-LAST:event_compilarActionPerformed
 
     private void abrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abrirActionPerformed
@@ -758,7 +978,7 @@ Pattern pat = Pattern.compile("[\\s]*(if)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>
 		BufferedWriter bw = new BufferedWriter(w);
 		PrintWriter wr =new PrintWriter(bw);
                 String aux=this.Csalida.getText();	
-		wr.write(aux);
+		wr.write(cadena+aux);
                 
             
 		wr.close();
@@ -780,6 +1000,7 @@ Pattern pat = Pattern.compile("[\\s]*(if)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea Csalida;
+    private javax.swing.JTextArea Generacion;
     private javax.swing.JTextArea Ingreso;
     private javax.swing.JButton abrir;
     private javax.swing.JButton compilar;
@@ -788,6 +1009,7 @@ Pattern pat = Pattern.compile("[\\s]*(if)[\\s]*[(][\\s]-*\\d+[\\s](&&|==|!=|<=|>
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton salir;
