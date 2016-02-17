@@ -1,6 +1,6 @@
 int variable ;
 `
-public void funcion ( ) {
+public void funcion ( int c1 ) {
 String aux ;
 }
 `
@@ -19,10 +19,12 @@ do variable = 5 * 8 ;
 }
 `
 do { 
- variable = 5 * 8 ;
+variable = 5 * 8 ;
 } while ( 5 < 3 ) `
 5 + 10 = 15 ; `
-5 + 10 <= 15 ; `
-5 + 10 >= 15 ; `
-5 + 10 != 15 ; `
-5 + 10 == 15 ; 
+1 + 2 <= 15 ; `
+4 + 6 >= 13 ; `
+5 + 10 != 14 ; `
+8 + 1 == 17 ; `
+x + y = m ; `
+x + 7 = 19 ;
